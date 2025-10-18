@@ -109,18 +109,32 @@ body.dark-mode section { background-color:#333; color:#f8f8f8; }
 <div class="gallery-item"><img src="images/Gracie3.jpg"></div>
 <div class="gallery-item"><img src="images/Gracie4.jpg"></div>    
 </div>
+<div class="info" style="display:none;">
+    <p>Gracie Abrams is an American singer-songwriter known for her raw, emotional lyrics and soft, introspective sound. Her debut album “Good Riddance” and her latest works have established her as a leading voice in heartfelt indie pop.</p>
+  </div>
+  <button class="show-info-btn">Show More</button>    
 </section>
 
 <section id="collabs">
   <h2>The Taygracie Connection</h2>
   <p>We celebrate Taylor and Gracie’s friendship, collaborations, and unforgettable moments together.</p>
   <div class="gallery-grid">
-<div class="gallery-item"><img src="images/taygracie1.jpg"<width="736"><height="914"></img></div>
+<div class="gallery-item"><img src="images/taygracie1.jpg"<width="736"><height="914"></img>
+</div>
+  <div class="info" style="display:none;">
+    <p>Taylor Swift and Gracie Abrams share not only a friendship but also a creative bond. From performing together on tour to sharing songs and mutual admiration, the Taygracie connection continues to inspire fans around the world.</p>
+  </div>
+  <button class="show-info-btn">Show More</button>
 </section>
 
 <section id="fanwork">
 <h2>About both Fandoms</h2>
 <p>This section is more about the communities!</p>
+
+  <div class="info" style="display:none;">
+    <p>The Swifties and Gracies are two passionate fandoms that embody love, creativity, and support. Together, the Taygracie community unites fans who celebrate both artists’ music, friendship, and the emotions that connect them all.</p>
+  </div>
+  <button class="show-info-btn">Show More</button>
 <p style="font-style: italic;"></p>
 </section>
 </main>
@@ -146,12 +160,12 @@ toggle.addEventListener('click', () => {
         toggle.textContent = "🌙 Dark Mode";
     }
 });
-// --- Show/Hide Info Button Functionality ---
+// Show More / Show Less Buttons
 const buttons = document.querySelectorAll('.show-info-btn');
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    const info = button.previousElementSibling; // finds the .info div above
-    if (info.style.display === "none" || info.style.display === "") {
+    const info = button.previousElementSibling;
+    if (info.style.display === "none") {
       info.style.display = "block";
       button.textContent = "Show Less";
     } else {
