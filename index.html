@@ -151,36 +151,37 @@ body.dark-mode section { background-color:#333; color:#f8f8f8; }
 </footer>
 
 <script>
-// --- Theme Toggle ---
-const toggle = document.getElementById('theme-toggle');
-toggle.addEventListener('click', () => {
-  document.body.classList.toggle('dark-mode');
-  if (document.body.classList.contains('dark-mode')) {
-    toggle.textContent = "☀️ Light Mode";
-  } else {
-    toggle.textContent = "🌙 Dark Mode";
+document.addEventListener("DOMContentLoaded", () => {
+  // --- Theme Toggle ---
+  const toggle = document.getElementById('theme-toggle');
+  if (toggle) {
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark-mode');
+      if (document.body.classList.contains('dark-mode')) {
+        toggle.textContent = "☀️ Light Mode";
+      } else {
+        toggle.textContent = "🌙 Dark Mode";
+      }
+    });
   }
-});
 
-// --- Show/Hide Info Button Functionality ---
-const buttons = document.querySelectorAll('.show-info-btn');
+  // --- Show/Hide Info Button Functionality ---
+  const buttons = document.querySelectorAll('.show-info-btn');
+  buttons.forEach(button => {
+    button.addEventListener('click', () => {
+      const section = button.closest('section');
+      const info = section.querySelector('.info');
 
-buttons.forEach(button => {
-  button.addEventListener('click', () => {
-    // Finds the .info div inside the same section as the button
-    const section = button.closest('section');
-    const info = section.querySelector('.info');
-
-    if (info.style.display === "none" || info.style.display === "") {
-      info.style.display = "block";
-      button.textContent = "Show Less";
-    } else {
-      info.style.display = "none";
-      button.textContent = "Show More";
-    }
+      if (info.style.display === "none" || info.style.display === "") {
+        info.style.display = "block";
+        button.textContent = "Show Less";
+      } else {
+        info.style.display = "none";
+        button.textContent = "Show More";
+      }
+    });
   });
 });
-    
 </script>
 
 </body>
