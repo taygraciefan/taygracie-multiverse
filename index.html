@@ -160,12 +160,12 @@ toggle.addEventListener('click', () => {
         toggle.textContent = "🌙 Dark Mode";
     }
 });
-// Show More / Show Less Buttons
+// --- Show/Hide Info Button Functionality ---
 const buttons = document.querySelectorAll('.show-info-btn');
 buttons.forEach(button => {
   button.addEventListener('click', () => {
-    const info = button.previousElementSibling;
-    if (info.style.display === "none") {
+    const info = button.previousElementSibling; // finds the .info div above
+    if (info.style.display === "none" || info.style.display === "") {
       info.style.display = "block";
       button.textContent = "Show Less";
     } else {
